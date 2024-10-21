@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
   inputArea: {
     flexDirection:'row',
     width:'100%',
-    backgroundColor:'white',
-    height: 50,
+    backgroundColor:'2A2A2A',
+    height: 60,
     alignItems:'center',
     borderRadius: 5,
   },
@@ -132,6 +132,8 @@ logoutContainer: {
     paddingHorizontal: wp('2.5%'),
     paddingVertical: hp('1.25%'),
     fontSize: hp('2%'),
+    flex: 1,
+    width: '100%',
   },
 
   containerBotoes: {
