@@ -8,6 +8,7 @@ import EsqueceuSenha from '../screens/esqueceusenha';
 import PerfilCliente from '../screens/perfilcliente/index';
 import Bottomnav from './bootomnavbar'; 
 import Resultados from '../screens/resultados';
+import Lojista from '../screens/lojista/index';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ export default function Route() {
       <Stack.Screen name="PerfilCliente" component={PerfilCliente} />  
       <Stack.Screen name="Home" component={Bottomnav} />
       <Stack.Screen name="Resultados" component={Resultados} /> 
+      <Stack.Screen name="Lojista" component={Lojista} />
     </Stack.Navigator>
   );
 }

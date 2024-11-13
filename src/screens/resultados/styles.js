@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 20,
     padding: 16,
     backgroundColor: '#f5f5f5', // Cor de fundo clara
   },
@@ -56,6 +57,15 @@ const styles = StyleSheet.create({
     height: 120, // Altura fixa para a imagem do produto
     borderRadius: 8,
     marginTop: 8,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: wp('2.5%'),
+    paddingTop: hp('2.5%'),
+    backgroundColor: '#050521', // Azul de fundo
+    
   },
 });
 

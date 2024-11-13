@@ -14,6 +14,9 @@ npm install --save react-native-permissions
 npm install --save react-native-permissions
 expo install expo-location
 npm install @react-native-picker/picker
+npm install react-native-maps
+npm install react-native-maps-directions
+npm install react-native-webview
 npx expo start
 
 
@@ -23,4 +26,4 @@ npx expo start
 
 
 execute os comando acima e depois mude o ip do arquivo api.js dentro de service e na variavel ip dentro da tela home 
-obs: coloque o ip da sua maquina, para saber o ip insira esse codigo ipconfig
+obs: coloque o ip da sua maquina, para saber o ip insira esse codigo ipconfig   

@@ -1,25 +1,30 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { AntDesign } from '@expo/vector-icons';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function Resultados({ route }) {
+export default function Resultados() {
+  const navigation = useNavigation();
+  const route = useRoute();
   const { resultados } = route.params;
 
   const renderItem = ({ item }) => {
-    // Verifica se o item é um lojista ou um produto
-    const isLojista = item.nomeEmpresa !== undefined; // Supondo que lojistas têm a propriedade 'nomeEmpresa'
-    
+    const isLojista = item.nomeEmpresa !== undefined;
+
     return (
+  
       <View style={styles.itemContainer}>
         {isLojista ? (
-          <>
+          <TouchableOpacity onPress={() => navigation.navigate('Lojista', { email: item.email, id: item.id })}>
             <Text style={styles.nomeLoja}>{item.nomeEmpresa}</Text>
             <Text style={styles.distancia}>{item.distanciaFormatada}</Text>
-          </>
+          </TouchableOpacity>
         ) : (
           <>
-            <Text style={styles.nomeProduto}>{item.nome}</Text> {/* Supondo que produtos têm a propriedade 'nome' */}
-            <Text style={styles.preco}>Preço: {item.preco}</Text> {/* Supondo que produtos têm a propriedade 'preco' */}
-            <Text style={styles.lojista}>Lojista: {item.lojista.nomeEmpresa}</Text> {/* Nome do lojista */}
+            <Text style={styles.nomeProduto}>{item.nome}</Text>
+            <Text style={styles.preco}>Preço: {item.preco}</Text>
+            <Text style={styles.lojista}>Lojista: {item.lojista.nomeEmpresa}</Text>
           </>
         )}
       </View>
@@ -28,11 +33,16 @@ export default function Resultados({ route }) {
 
   return (
     <View style={styles.container}>
+       <View style={styles.headerContainer}>
+      <TouchableOpacity style ={styles.backButton} onPress={navigation.goBack}> 
+        <AntDesign  name="leftcircle" size={35} color="white" /> 
+        </TouchableOpacity>
       <FlatList
         data={resultados}
         renderItem={renderItem}
-        keyExtractor={item => item.id.toString()} // Certifique-se que o 'id' é uma string
+        keyExtractor={item => item.id.toString()}
       />
+      </View>
     </View>
   );
 }
@@ -41,11 +51,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#050521',
   },
   itemContainer: {
     marginVertical: 8,
-    padding: 12,
+    padding: 5,
     backgroundColor: '#f9f9f9',
     borderRadius: 8,
     shadowColor: '#000',
